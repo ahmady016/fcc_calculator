@@ -1,3 +1,8 @@
+/* bootstrap */
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css';
+/* fontawesome icons */
+@import 'https://use.fontawesome.com/releases/v5.4.1/css/all.css';
+/* App Styles */
 body {
   margin: 0;
   padding: 0;
@@ -7,8 +12,55 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+div#root {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #6c757d;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.app-header, .app-footer {
+  flex-basis: 13%;
+  min-height: 13vh;
+  display: flex;
+  align-items: center;
+  background-color: #343a40;
+  color: #fff;
+  font-size: calc(10px + 2vmin);
+}
+.app-header .app-logo {
+  animation: App-logo-spin infinite 30s linear;
+  height: 10vmin;
+  margin: 0;
+}
+.app-footer {
+  justify-content: center;
+}
+.app-footer .fa-copyright {
+  margin-right: 0.7rem;
+  font-size: 1.4rem;
+}
+.app-footer p {
+  margin: 0;
+}
+.app-footer code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+main {
+  flex-basis: 72%;
+  min-height: 72vh;
+  width: 40%;
+  margin: auto;
+  padding: 0.5rem;
+  border: 2px solid #47476b;
+  background: #333;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
