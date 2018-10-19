@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default () => {
+export default ({ input, output }) => {
   return (
-    <div>
-
-    </div>
+    <section id="display">
+      <div className="output">{output}</div>
+      <div className="input">{input}</div>
+    </section>
   )
 }

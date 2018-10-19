@@ -13,16 +13,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 div#root {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   background-color: #6c757d;
   color: white;
-  display: flex;
-  flex-direction: column;
 }
-.app-header, .app-footer {
-  flex-basis: 13%;
-  min-height: 13vh;
+.app-header {
+  min-height: 10vh;
+  width: 100%;
   display: flex;
   align-items: center;
   background-color: #343a40;
@@ -35,7 +33,10 @@ div#root {
   margin: 0;
 }
 .app-footer {
+  width: 100%;
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 .app-footer .fa-copyright {
   margin-right: 0.7rem;
@@ -48,13 +49,112 @@ div#root {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 main {
-  flex-basis: 72%;
-  min-height: 72vh;
+  min-height: 90vh;
   width: 40%;
-  margin: auto;
+  margin: 0.5rem auto;
   padding: 0.5rem;
-  border: 2px solid #47476b;
-  background: #333;
+  border: 5px solid #bbb;
+  background: #737373;
+}
+main #display {
+  height: 15vh;
+  background-color: #0f161d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+main #display div {
+  padding: 0 0.2rem;
+  font-size: 1.4rem;
+}
+main #display .input {
+  font-size: 2rem;
+}
+main #display .output {
+  color: #9c4f00;
+}
+main #calc-pad {
+  height: 70vh;
+  background-color: #6c757d;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "clear slash asterisk dash"
+    "seven eight nine plus"
+    "four five six plus"
+    "one two three equals"
+    "zero zero dot equals";
+}
+#zero {
+  grid-area: zero;
+}
+#decimal {
+  grid-area: dot;
+}
+#equals {
+  grid-area: equals;
+  background-color: #611d1d;
+}
+#one {
+  grid-area: one;
+}
+#two {
+  grid-area: two;
+}
+#three {
+  grid-area: three;
+}
+#four {
+  grid-area: four;
+}
+#five {
+  grid-area: five;
+}
+#six {
+  grid-area: six;
+}
+#seven {
+  grid-area: seven;
+}
+#eight {
+  grid-area: eight;
+}
+#nine {
+  grid-area: nine;
+}
+#add {
+  grid-area: plus;
+}
+#subtract {
+  grid-area: dash;
+}
+#multiply {
+  grid-area: asterisk;
+}
+#divide {
+  grid-area: slash;
+}
+#clear {
+  grid-area: clear;
+  background-color: #9c4f00;
+}
+#add, #subtract, #divide, #multiply  {
+  background-color: #133554;
+}
+main .calc-btn {
+  border: 1px solid #6c757d;
+  background-color: #00162a;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+}
+main .calc-btn:hover {
+  border: 1px solid #fff;
+  color: #f90;
 }
 @keyframes App-logo-spin {
   from {
