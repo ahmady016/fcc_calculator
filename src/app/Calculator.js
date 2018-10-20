@@ -9,7 +9,7 @@ export default class Calculator extends React.Component {
     // component state
     this.state = {
       input: '0',
-      output: ''
+      output: '0'
     }
     // event handlers
     this.handleInput = this.handleInput.bind(this);
@@ -17,24 +17,22 @@ export default class Calculator extends React.Component {
     this.inputType = 'append';
   }
   handleInput(id, value) {
+    // get prev State [input, output]
     const { input, output } = this.state;
-    // handle pressing these values ['=','+','-','*','/','0'] in the begining
-    if(input === '0' && ['=','+','-','*','/','0'].includes(value) )
-      this.inputType = 'none';
-    // handle pressing numbers values !['=','+','-','*','/','0','.'] in the begining
-    else if(input === '0' && !['=','+','-','*','/','0','.'].includes(value) )
-      this.inputType = 'replace';
     // handle pressing clear
-    else if(id === 'clear')
+    if(id === 'clear')
       this.inputType = 'replace';
+    // handle pressing these values ['=','+','-','*','/','0'] in the begining
+    else if(input === '0' && ['=','+','-','*','/','0'].includes(value))
+      this.inputType = 'none';
     // handle pressing decimal [dot]
-    else if(input.includes('.') && value === '.')
+    else if(value === '.' && input.includes('.'))
       this.inputType = 'none';
     // handle pressing calc opreator ['+','-','*','/']
     else if(['+','-','*','/'].includes(value))
       this.inputType = 'op';
     // handle pressing numbers after pressing a calc operator ['+','-','*','/']
-    else if( ['+','-','*','/'].includes(output[output.length-1]) )
+    else if(['+','-','*','/'].includes(output[output.length-1]) )
       this.inputType = 'replaceInput';
     // handle pressing equals [enter]
     else if(value === '=')
@@ -42,10 +40,16 @@ export default class Calculator extends React.Component {
     // handle exceeds number length
     else if(input.length > 12)
       this.inputType = 'none';
-    // handle pressing numbers
+    // handle pressing numbers !['=','+','-','*','/','0','.'] in the begining
+    else if(input === '0' && !['=','+','-','*','/','0','.'].includes(value))
+      this.inputType = 'replace';
+    // handle pressing any key after equal
+    else if(output.includes('='))
+      this.inputType = 'replace';
+    // handle pressing numbers !['=','+','-','*','/','0','.']
     else
       this.inputType = 'append';
-    // set component state
+    // setState [input, output] based on inputType
     if (this.inputType === 'append')
       this.setState({ input: input+value, output: output+value });
     else if(this.inputType === 'replace')
@@ -55,7 +59,7 @@ export default class Calculator extends React.Component {
     else if(this.inputType === 'replaceInput')
       this.setState({ input: value, output: output+value });
     else if(this.inputType === 'equals')
-      this.setState({ input: eval(output), output: output+' = '+eval(output) });
+      this.setState({ input: eval(output), output: output +' = '+ eval(output) });
   }
   render() {
     return (
