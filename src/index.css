@@ -15,8 +15,8 @@ body {
 div#root {
   width: 100%;
   min-height: 100vh;
-  background-color: #6c757d;
-  color: white;
+  background-color: #888;
+  color: #fff;
 }
 .app-header {
   min-height: 10vh;
@@ -47,6 +47,7 @@ div#root {
 }
 .app-footer code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  color: #343a40;
 }
 main {
   min-height: 90vh;
@@ -58,7 +59,7 @@ main {
 }
 main #display {
   height: 15vh;
-  background-color: #0f161d;
+  background-color: #2a2f34;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -72,7 +73,7 @@ main #display .input {
   font-size: 2rem;
 }
 main #display .output {
-  color: #9c4f00;
+  color: #ffa448;
 }
 main #calc-pad {
   height: 70vh;
@@ -91,10 +92,6 @@ main #calc-pad {
 }
 #decimal {
   grid-area: dot;
-}
-#equals {
-  grid-area: equals;
-  background-color: #611d1d;
 }
 #one {
   grid-area: one;
@@ -135,16 +132,20 @@ main #calc-pad {
 #divide {
   grid-area: slash;
 }
+#equals {
+  grid-area: equals;
+  background-color: #753937;
+}
 #clear {
   grid-area: clear;
   background-color: #9c4f00;
 }
 #add, #subtract, #divide, #multiply  {
-  background-color: #133554;
+  background-color: #314d66;
 }
 main .calc-btn {
   border: 1px solid #6c757d;
-  background-color: #00162a;
+  background-color: #1d2f3f;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -155,6 +156,11 @@ main .calc-btn {
 main .calc-btn:hover {
   border: 1px solid #fff;
   color: #f90;
+}
+main .calc-btn.active {
+  border: none;
+  background-color: #bbb;
+  color: #444;
 }
 @keyframes App-logo-spin {
   from {

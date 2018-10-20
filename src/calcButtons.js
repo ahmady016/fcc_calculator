@@ -81,7 +81,7 @@ export default [
     id: "multiply",
     key: "*",
     keyCode: 106,
-    value: "x"
+    value: "*"
   },
   {
     id: "divide",
